@@ -1,8 +1,7 @@
 <?php
 
 require 'functions.php';
-
-$uri = $_SERVER_['REQUEST_URI'];
+$uri = $_SERVER['REQUEST_URI'];
 
 if($uri === '/'){
     require 'controllers/index.php';
@@ -13,4 +12,5 @@ if($uri === '/'){
         require 'controllers/contact.php';
      }
 
-// dd($_SERVER); 
+
+// dd($_SERVER);  
