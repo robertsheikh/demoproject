@@ -6,18 +6,6 @@ require "views/index.view.php";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // echo $_SERVER["REQUEST_URI"];
 
 // this is 1st method 
