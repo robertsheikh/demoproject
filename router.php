@@ -1,4 +1,5 @@
 <?php 
+// database root password is mahammad 123  
 $uri =parse_url( $_SERVER['REQUEST_URI'])['path'];
 
 
