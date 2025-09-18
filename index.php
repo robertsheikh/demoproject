@@ -1,26 +1,20 @@
 <?php
-                    // echo "hello";
 require 'functions.php';
 require 'Database.php';
-// require 'router.php';
 
- 
-$db = new Database(); 
-// $posts=  $db->query("select * from posts");
-$posts=  $db->query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
+$config =  require('config.php'); 
+$db = new Database($config['database']);
+
+$id= $_GET['id'];
+$query = "select * from posts where id = :id";
+
+$posts = $db->query($query,[':id'=> $id])->fetch();
+
 dd($posts);
 
-// foreach ($posts as $post){
-//     echo "<li>" . $post['title'] . "</li>";
-// }
 
 
-
-
-
-
-
-
+ 
 //DEMO 
 //connnect to mySql database
 // class  Person
@@ -29,7 +23,7 @@ dd($posts);
 //     public $age;
     
 //     public function breathe(){
-//         echo "breathng";
+//         echo "breathing";
 //         echo $this->name . " is breathng";
 //     }
 // }

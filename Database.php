@@ -1,25 +1,21 @@
 <?php 
-                  //connect to the database, and execute a query.
 class Database{
     public $connection;
-    public function __construct(){
-                                   // dd('hi there');
-                                  //connect to Mysql database
-    $dsn = "mysql:host=localhost;port=3306;dbname=myapp;user=root;password=mahammad123;charset=utf8mb4";
-                                 //    $pdo = new PDO($dsn);
-    $this->connection = new PDO($dsn, 'root', '', []);
-        }
-    public function query($query){
+    public function __construct($config, $username='root', $password='mahammad123')
+        {
+                       //1st method    
+    $dsn = ('mysql:' . http_build_query($config, '',';'));
+                       //2nd method
+    // $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};password={$config['password']};charset={$config['charset']}";
+    $this->connection = new PDO($dsn, $username, $password, [
+        PDO::ATTR_DEFAULT_FETCH_MODE =>PDO::FETCH_ASSOC
+    ]);
+}
+    public function query($query, $params = []){
                 
-                      
-                     
-                                  // $statement = $pdo->prepare("select * from posts");
-                        // $statement = $pdo->prepare($query);
     $statement = $this->connection->prepare($query);
-    $statement->execute();
-                    //    return $statement->fetchAll(PDO::FETCH_ASSOC);
+    $statement->execute($params);
     return $statement;
-                                 // dd($posts); 
     }
         }
                 
