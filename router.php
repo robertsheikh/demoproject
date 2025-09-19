@@ -17,8 +17,10 @@ $uri =parse_url( $_SERVER['REQUEST_URI'])['path'];
 // Route 2nd method 
      $routes = [
       '/' => 'controllers/index.php',
-      '/about' => 'controllers/index.php',
-      '/contact' => 'controllers/index.php',
+      '/about' => 'controllers/about.php',
+      '/notes' => 'controllers/notes.php',
+      '/note' => 'controllers/note.php',
+      '/contact' => 'controllers/contact.php',
      ];
 
    
