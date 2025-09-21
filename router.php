@@ -1,30 +1,7 @@
 <?php 
+
+$routes = require('routes.php');
 // database root password is mahammad 123  
-$uri =parse_url( $_SERVER['REQUEST_URI'])['path'];
-
-
-// Route 1st method 
-// if($uri === '/'){
-//     require 'controllers/index.php';
-// } else if 
-//      ($uri === '/about'){
-//         require 'controllers/about.php';
-//      }else if($uri === '/contact'){
-//         require 'controllers/contact.php';
-//      }
-
-
-// Route 2nd method 
-     $routes = [
-      '/' => 'controllers/index.php',
-      '/about' => 'controllers/about.php',
-      '/notes' => 'controllers/notes.php',
-      '/note' => 'controllers/note.php',
-      '/contact' => 'controllers/contact.php',
-     ];
-
-   
-     
 
      function routeToController($uri,$routes){
       if(array_key_exists($uri,$routes)){
@@ -41,4 +18,6 @@ $uri =parse_url( $_SERVER['REQUEST_URI'])['path'];
       die();
      }
 
-   routeToController($uri,$routes);
+$uri =parse_url( $_SERVER['REQUEST_URI'])['path']; 
+
+ routeToController($uri,$routes);
